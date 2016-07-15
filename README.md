@@ -1,8 +1,13 @@
-# TED_Paper
-The file items.json contain a dataset used in a scientific paper about relation discovery in knowledge graphs. The data was scrapped from the official website of TED http://www.ted.com/playlists.  The JSON file contains three types of items. You can differentiate them because they contain different fields. 
+# TED_KnowledgeGraph
+The TED talks knowledge graph (items.json) consists of 846 talks and 125 playlists. Playlists are described with a title and the set of included TED talks. Each TED talk is described with the following set of datatype properties:
+* dc:title (Dublin Core vocabulary) or title of the talk.,
+* dc:creator or speaker,
+* dc:description or abstract,
+* ted:relatedTags or set of related keywords.
 
-First we have groups of playlists. Each group of playlists has a title and a array of playlists URLs.
-Secondly, we have the playlists. Each playlists has an URL, a title and an array of talk URLs.
-Finally, we have the talks. Each talk is described by a textual description, a title, the amount of views, the related tags, the speaker and its related videos. We did not consider this relationship of related_videos as ground truth. It seems that some of them are randomly assigned. Instead, we consider that two talks are related if they appear together in at least one playlist. Acconding to TED, playlists are human curated, so it can be a high quality ground truth.
+Apart from the datatype properties, talks are connected to playlists that include them through the object property ted:playlist. A vol:hasLink (Vocabulary Of Links http://purl.org/vol/ns/) object property connect each pair of talks that are together in at least one playlist.
+We crawled the playlists available in the TED website http://www.ted.com/playlists. Playlists contain sets of TED talks that usually address similar topics. TED playlists are created and maintained by curators, who decide if a certain video may or may not be included in a certain playlist.
 
-Additionally we computed Doc2Vec similarity values for each pair of TED talks based on the text form by the concatenation of the title, the description and the related tags. We used this values in order to discover relations between talks with KOI. The file is formatted as a matrix, where the content of the position [i,j] corresponds to the similarity between talks i and j. i and j corresponds to the i-th and j-th talks described in the items.json file.
+Additionally, we enriched the knowledge graph by adding similarity values between each pair of entities. We computed four similarity measures (TFIDF, ESA} and Doc2Vec) using as input the concatenation of datatype properties title, description and related tags. ESA similarity values were obtained using the public ESA endpoint http://vmdeb20.deri.ie:8890/esaservice, and Doc2Vec (D2V) values were obtained training the gensim implementation~ with the pre-trained Google News dataset https://goo.gl/flpokK.
+
+Similarity values are stored in three different matrix where the content of the position [i,j] corresponds to the similarity between talks i and j. i and j corresponds to the i-th and j-th talks described in the items.json file.
