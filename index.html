@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Ted knowledgegraph by itraveribon</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Ted knowledgegraph</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/itraveribon/TED_KnowledgeGraph">View the Project on GitHub <small>itraveribon/TED_KnowledgeGraph</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/itraveribon/TED_KnowledgeGraph/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/itraveribon/TED_KnowledgeGraph/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/itraveribon/TED_KnowledgeGraph">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="ted_knowledgegraph" class="anchor" href="#ted_knowledgegraph" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TED_KnowledgeGraph</h1>
+
+<p>The TED talks knowledge graph (items.json) consists of 846 talks and 125 playlists. Playlists are described with a title and the set of included TED talks. Each TED talk is described with the following set of datatype properties:</p>
+
+<ul>
+<li>dc:title (Dublin Core vocabulary) or title of the talk.,</li>
+<li>dc:creator or speaker,</li>
+<li>dc:description or abstract,</li>
+<li>ted:relatedTags or set of related keywords.</li>
+</ul>
+
+<p>Apart from the datatype properties, talks are connected to playlists that include them through the object property ted:playlist. A vol:hasLink (Vocabulary Of Links <a href="http://purl.org/vol/ns/">http://purl.org/vol/ns/</a>) object property connect each pair of talks that are together in at least one playlist.
+We crawled the playlists available in the TED website <a href="http://www.ted.com/playlists">http://www.ted.com/playlists</a>. Playlists contain sets of TED talks that usually address similar topics. TED playlists are created and maintained by curators, who decide if a certain video may or may not be included in a certain playlist.</p>
+
+<p>Additionally, we enriched the knowledge graph by adding similarity values between each pair of entities. We computed four similarity measures (TFIDF, ESA} and Doc2Vec) using as input the concatenation of datatype properties title, description and related tags. ESA similarity values were obtained using the public ESA endpoint <a href="http://vmdeb20.deri.ie:8890/esaservice">http://vmdeb20.deri.ie:8890/esaservice</a>, and Doc2Vec (D2V) values were obtained training the gensim implementation~ with the pre-trained Google News dataset <a href="https://goo.gl/flpokK">https://goo.gl/flpokK</a>.</p>
+
+<p>Similarity values are stored in three different matrix where the content of the position [i,j] corresponds to the similarity between talks i and j. i and j corresponds to the i-th and j-th talks described in the items.json file.</p>
+
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/itraveribon">itraveribon</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
