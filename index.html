@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Ted knowledgegraph by itraveribon</title>
+    <title>TED Knowledge Graph by itraveribon</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Ted knowledgegraph</h1>
+        <h1>TED Knowledge Graph</h1>
         <p></p>
 
         <p class="view"><a href="https://github.com/itraveribon/TED_KnowledgeGraph">View the Project on GitHub <small>itraveribon/TED_KnowledgeGraph</small></a></p>
@@ -28,7 +28,13 @@
         </ul>
       </header>
       <section>
-        <h1>
+        <p></p>
+
+
+
+<p></p>
+
+<h1>
 <a id="ted_knowledgegraph" class="anchor" href="#ted_knowledgegraph" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TED_KnowledgeGraph</h1>
 
 <p>The TED talks knowledge graph (items.json) consists of 846 talks and 125 playlists. Playlists are described with a title and the set of included TED talks. Each TED talk is described with the following set of datatype properties:</p>
@@ -46,8 +52,6 @@ We crawled the playlists available in the TED website <a href="http://www.ted.co
 <p>Additionally, we enriched the knowledge graph by adding similarity values between each pair of entities. We computed four similarity measures (TFIDF, ESA} and Doc2Vec) using as input the concatenation of datatype properties title, description and related tags. ESA similarity values were obtained using the public ESA endpoint <a href="http://vmdeb20.deri.ie:8890/esaservice">http://vmdeb20.deri.ie:8890/esaservice</a>, and Doc2Vec (D2V) values were obtained training the gensim implementation~ with the pre-trained Google News dataset <a href="https://goo.gl/flpokK">https://goo.gl/flpokK</a>.</p>
 
 <p>Similarity values are stored in three different matrix where the content of the position [i,j] corresponds to the similarity between talks i and j. i and j corresponds to the i-th and j-th talks described in the items.json file.</p>
-
-
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/itraveribon">itraveribon</a></p>
